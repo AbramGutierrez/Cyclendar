@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
-  @response
+  @events
   
   def display_all
 	url = "https://www.bikereg.com/api/search"
-	@response = JSON.parse(RestClient.get(url))
+	@events = JSON.parse(RestClient.get(url))
   end
 
   def add_to_calendar

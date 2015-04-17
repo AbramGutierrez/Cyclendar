@@ -8,9 +8,10 @@
   </thead>
 
   <tbody>
-    <% @response["MatchingEvents"].each do |event| %>
+    <% @events["MatchingEvents"].each do |event| %>
       <tr>
         <td><%= event["EventName"] %></td>
+		<td><%= event["EventCity"] %></td>
       </tr>
     <% end %>
   </tbody>
