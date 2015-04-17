@@ -1,2 +1,17 @@
 <h1>Events#display_all</h1>
-<p>Find me in app/views/events/display_all.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @response["MatchingEvents"].each do |event| %>
+      <tr>
+        <td><%= event["EventName"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
