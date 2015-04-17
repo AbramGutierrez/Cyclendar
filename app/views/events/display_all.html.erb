@@ -4,6 +4,11 @@
   <thead>
     <tr>
       <th>Event Name</th>
+	  <th>Address</th>
+	  <th>City</th>
+	  <th>State</th>
+	  <th>Start Date</th>
+	  <th>End Date</th>
     </tr>
   </thead>
 
@@ -11,7 +16,11 @@
     <% @events["MatchingEvents"].each do |event| %>
       <tr>
         <td><%= event["EventName"] %></td>
+		<td><%= event["EventAddress"] %></td>
 		<td><%= event["EventCity"] %></td>
+		<td><%= event["EventState"] %></td>
+		<td><%= event["EventDate"] %></td>
+		<td><%= event["EventEndDate"] %></td>
       </tr>
     <% end %>
   </tbody>
