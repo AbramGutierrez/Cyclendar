@@ -29,6 +29,15 @@ gem 'rest-client', '~> 1.8.0'
 # Consume JSON data
 gem 'json'
 
+# Use foundation for stylesheets
+gem 'foundation-rails'
+
+# Necessary to prevent no timezone data errors on Windows
+gem 'tzinfo-data'
+
+# Allow use of haml for views
+gem 'haml'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
