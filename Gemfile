@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer'
+# gem "therubyracer", "~> 0.10.2"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -31,9 +31,6 @@ gem 'json'
 
 # Use foundation for stylesheets
 gem 'foundation-rails'
-
-# Necessary to prevent no timezone data errors on Windows
-gem 'tzinfo-data'
 
 # Allow use of haml for views
 gem 'haml'
