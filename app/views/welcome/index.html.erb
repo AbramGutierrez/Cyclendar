@@ -1,29 +1,19 @@
 
-<%= javascript_include_tag "authcalendar" %>
-<%= javascript_include_tag "gmap" %>
+<header>Cyclendar</header>
 
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.js"></script>
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-<link href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.css" rel="stylesheet" type="text/css"/>
-<link href="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.print.css" rel="stylesheet" type="text/css"/>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/gcal.js"/></script>
-<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>  
-
+<div id='authorize'>
+	<a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
+</div>
 
 <section id='content'>
+
   <div id='eventsDiv'>
-	<h1>Events</h1>
+	<h1>Upcoming Events</h1>
   </div>
   <div id='googleDiv'>
 	  <div id='map-canvas'></div>
-	  <div id='calendar-canvas'>
-		<div id='calendar'></div>
-	  </div>
-	  <a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
+	  <div id='calendar'></div>
   </div>
 </section>
+<footer>Cyclendar: A Mashup for Homework 2</footer>
 

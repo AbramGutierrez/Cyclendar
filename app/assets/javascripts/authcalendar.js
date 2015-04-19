@@ -56,19 +56,22 @@ function makeApiCall() {
 
 
 function setUpCalendar() {
-	$('#calendar').fullCalendar({
-		// put your options and callbacks here
-	})
-	
-	events.items.forEach(function (googEvent) { 
-		if(googEvent && googEvent.summary && googEvent.start && googEvent.start.dateTime) {
-			var newEvent = {
-				start: googEvent.start.dateTime,
-				allDay: false,
-				title: googEvent.summary
-			};
-			
-			//$('#calendar').fullCalendar( 'renderEvent', newEvent, 'stick' );
-		}
+	$(document).ready(function() {
+		$('#calendar').fullCalendar({
+			// put your options and callbacks here
+
+		})
+
+		events.items.forEach(function (googEvent) { 
+			if(googEvent && googEvent.summary && googEvent.start && googEvent.start.dateTime) {
+				var newEvent = {
+					start: googEvent.start.dateTime,
+					allDay: false,
+					title: googEvent.summary
+				};
+				
+				$('#calendar').fullCalendar( 'renderEvent', newEvent, 'stick' );
+			}
+		});
 	});
 }

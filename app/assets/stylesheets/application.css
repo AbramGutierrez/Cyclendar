@@ -15,34 +15,71 @@
  *= require foundation_and_overrides
 
  */
+
+header{
+	width: 90%;
+    margin: auto;
+	padding-left: 10px;
+	font-family: sans-serif;
+	font-size: 3em;
+	background: #500000;
+	color: #f8f5f1;
+}
+
+h1{
+	width: 100%;
+	font-size: 2em;
+	text-align: center;
+}
+
+footer{
+	width: 90%;
+    margin: auto;
+	padding-left: 10px;
+	background: #dfdddc;
+}
  
+#authorize {
+	width: 90%;
+    margin: auto;
+	background-color: #d2d6e0;
+	text-align: right
+}
+
+#authorize-button {
+    margin-right: 20px;
+	font-size: 1.5em;
+}
+
 section#content {
     width: 90%;
-    height: 70%;
+    height: 80%;
     margin: auto;
 }
 
 div#eventsDiv {
-    width: 25%;
+    width: 40%;
     height: 100%;
-    background: #d3d3d3;
+    background: #a99a6f;
     float: left;
 	overflow-y: scroll;
 }
 
 div#googleDiv {
-    margin-left: 29%;
+    margin-left: 40%;
     height: 100%;
     background: white;
 }
 
 div#map-canvas {
-    height: 30%;
-    background: aqua;
+    height: 40%;
+    background: #e8e5df;
 }
 
-div#calendar-canvas {
-    max-width: 900px;
-	margin: 0 auto;
+div#calendar {
+	width: 100%;
+	float: left;
+    height: 60%;
+    background: #c8c8c7;
 }
 
