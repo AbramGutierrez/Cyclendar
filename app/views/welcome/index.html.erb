@@ -1,4 +1,13 @@
 
+<script type="text/javascript">
+
+	function sendEvent(selected_event){
+		// .js function here
+		console.log('element passed')
+	}
+
+</script>
+
 <header>Cyclendar</header>
 
 <div id='authorize'>
@@ -9,6 +18,17 @@
 
   <div id='eventsDiv'>
 	<h1>Upcoming Events</h1>
+	<ul>
+		<% @events.each do |event| %>
+			<li>
+				<button onclick='addEvent(<%= event %>)'>
+					<p><%= event["EventName"] %></p>
+					<p><%= event["EventCity"] + ", " + event["EventState"]%></p>
+					<p><%= 	"Event Start: " + Date.strptime(event["EventDate"][6..15], "%s").to_s + " End: " + Date.strptime(event["EventEndDate"][6..15], "%s").to_s %></p>
+				</button>
+			</li>
+		<% end %>
+	</ul>
   </div>
   <div id='googleDiv'>
 	  <div id='map-canvas'></div>
