@@ -13,11 +13,14 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/gcal.js"/></script>
 <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>  
 
-<div class="row" id='content'>
-  <h1>Events</h1>
-  
-  <div id='calendar'></div>
+
+<div id='content'>
+  <div id="eventDiv">
+	<h1>Events</h1>
+  </div>
+  <div id='calendar'>
+	<a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
+  </div>
   <div id='map-canvas'>hello</div>
-  <ul id='events'></ul>
 </div>
-<a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
+

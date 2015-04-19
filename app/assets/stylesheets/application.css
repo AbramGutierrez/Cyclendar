@@ -15,3 +15,10 @@
  *= require foundation_and_overrides
 
  */
+ 
+ .eventDiv{
+	margin: 100px;
+	background-color: rgb(255,0,255);
+	float: left;
+	overflow: scroll;
+ }
