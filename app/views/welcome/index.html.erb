@@ -14,13 +14,16 @@
 <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>  
 
 
-<div id='content'>
-  <div id="eventDiv">
+<section id='content'>
+  <div id='eventsDiv'>
 	<h1>Events</h1>
   </div>
-  <div id='calendar'>
-	<a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
+  <div id='googleDiv'>
+	  <div id='map-canvas'></div>
+	  <div id='calendar-canvas'>
+		<div id='calendar'></div>
+	  </div>
+	  <a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
   </div>
-  <div id='map-canvas'>hello</div>
-</div>
+</section>
 

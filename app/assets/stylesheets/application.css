@@ -16,9 +16,33 @@
 
  */
  
- .eventDiv{
-	margin: 100px;
-	background-color: rgb(255,0,255);
-	float: left;
-	overflow: scroll;
- }
+section#content {
+    width: 90%;
+    height: 70%;
+    margin: auto;
+}
+
+div#eventsDiv {
+    width: 25%;
+    height: 100%;
+    background: #d3d3d3;
+    float: left;
+	overflow-y: scroll;
+}
+
+div#googleDiv {
+    margin-left: 29%;
+    height: 100%;
+    background: white;
+}
+
+div#map-canvas {
+    height: 30%;
+    background: aqua;
+}
+
+div#calendar-canvas {
+    max-width: 900px;
+	margin: 0 auto;
+}
+

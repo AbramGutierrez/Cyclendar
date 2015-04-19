@@ -68,7 +68,7 @@ function setUpCalendar() {
 				title: googEvent.summary
 			};
 			
-			$('#calendar').fullCalendar( 'renderEvent', newEvent, 'stick' );
+			//$('#calendar').fullCalendar( 'renderEvent', newEvent, 'stick' );
 		}
 	});
 }
