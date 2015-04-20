@@ -3,7 +3,103 @@
 
 	function sendEvent(selected_event){
 		// .js function here
-		console.log('element passed')
+			var startDate = new Date(parseInt(selected_event.EventDate.substr(6)));
+			var endDate = new Date(parseInt(selected_event.EventEndDate.substr(6)));
+			
+			
+			t.updateLocation(parseInt(selected_event.Latitude), parseInt(selected_event.Longitude));
+			
+		if(endDate.getTime()-startDate.getTime() > 604800000) {
+			var startDateStart = new Date(parseInt(selected_event.EventDate.substr(6)));
+			var startDateEnd = new Date(parseInt(selected_event.EventDate.substr(6)));
+			var endDateEnd = new Date(parseInt(selected_event.EventEndDate.substr(6)));
+			var endDateStart =  new Date(parseInt(selected_event.EventEndDate.substr(6)));
+			
+			startDateEnd.setHours(startDateStart.getHours()+1);
+			endDateStart.setHours(endDateEnd.getHours()-1);
+			
+
+					
+			var startEvent = {
+						start: startDateStart.toISOString(),
+						end: startDateEnd.toISOString(),
+						title: selected_event.EventName + ' Start'
+					};
+					
+			var endEvent = {
+						start: endDateStart.toISOString(),
+						end: endDateEnd.toISOString(),
+						title: selected_event.EventName  + ' End'
+					};
+					
+			$('#calendar').fullCalendar( 'renderEvent', startEvent, 'stick');
+			$('#calendar').fullCalendar( 'renderEvent', endEvent, 'stick');
+			
+			gapi.client.load('calendar', 'v3', function() {
+				var newGoogleStartEvent = {
+				  "summary": selected_event.EventName + ' Start',
+				  "start": {
+					"dateTime": startDateStart.toISOString()
+				  },
+				  "end": {
+					"dateTime": startDateEnd.toISOString()
+				  }
+				  };
+				var newGoogleEndEvent = {
+				  "summary": selected_event.EventName  + ' End',
+				  "start": {
+					"dateTime": endDateStart.toISOString()
+				  },
+				  "end": {
+					"dateTime": endDateEnd.toISOString()
+				  }
+				  };
+				var request = gapi.client.calendar.events.insert({
+				  'calendarId': 'primary',
+				  'resource': newGoogleStartEvent
+				});
+				var request2 = gapi.client.calendar.events.insert({
+				  'calendarId': 'primary',
+				  'resource': newGoogleEndEvent
+				});
+				request.execute(function(resp) {
+				  console.log(resp);
+				});
+				request2.execute(function(resp) {
+				  console.log(resp);
+				});
+			});
+		}
+		else {
+
+					
+			var startEvent = {
+						start: startDate.toISOString(),
+						end: endDate.toISOString(),
+						title: selected_event.EventName
+					};
+					
+			$('#calendar').fullCalendar( 'renderEvent', startEvent, 'stick');
+			
+			gapi.client.load('calendar', 'v3', function() {
+				var newGoogleEvent = {
+				  "summary": selected_event.EventName,
+				  "start": {
+					"dateTime": startDate.toISOString()
+				  },
+				  "end": {
+					"dateTime": endDate.toISOString()
+				  }
+				  };
+				var request = gapi.client.calendar.events.insert({
+				  'calendarId': 'primary',
+				  'resource': newGoogleEvent
+				});
+				request.execute(function(resp) {
+					console.log(resp);
+				});
+			});
+		}
 	}
 
 </script>
@@ -21,7 +117,7 @@
 	<ul>
 		<% @events.each do |event| %>
 			<li>
-				<button onclick='addEvent(<%= event %>)'>
+				<button onclick='sendEvent(<%= event.to_json %>)'>
 					<p><%= event["EventName"] %></p>
 					<p><%= event["EventCity"] + ", " + event["EventState"]%></p>
 					<p><%= 	"Event Start: " + Date.strptime(event["EventDate"][6..15], "%s").to_s + " End: " + Date.strptime(event["EventEndDate"][6..15], "%s").to_s %></p>
