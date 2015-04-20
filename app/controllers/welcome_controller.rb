@@ -5,7 +5,7 @@ class WelcomeController < ActionController::Base
   def index
 	url = "https://www.bikereg.com/api/search"
 	
-	json = JSON.parse(RestClient.get(url));
+	json = JSON.parse(RestClient.get(url))
 	@events = json["MatchingEvents"]
   end
   

@@ -6,8 +6,8 @@
 			var startDate = new Date(parseInt(selected_event.EventDate.substr(6)));
 			var endDate = new Date(parseInt(selected_event.EventEndDate.substr(6)));
 			
-			
-			t.updateLocation(parseInt(selected_event.Latitude), parseInt(selected_event.Longitude));
+			var loc = selected_event.EventAddress + " " + selected_event.EventCity + ", " + selected_event.EventState
+			t.queryAndUpdateLocation(loc);
 			
 		if(endDate.getTime()-startDate.getTime() > 604800000) {
 			var startDateStart = new Date(parseInt(selected_event.EventDate.substr(6)));
@@ -114,13 +114,16 @@
 
   <div id='eventsDiv'>
 	<h1>Upcoming Events</h1>
-	<ul>
+	<ul id='utag'>
 		<% @events.each do |event| %>
-			<li>
-				<button onclick='sendEvent(<%= event.to_json %>)'>
-					<p><%= event["EventName"] %></p>
-					<p><%= event["EventCity"] + ", " + event["EventState"]%></p>
-					<p><%= 	"Event Start: " + Date.strptime(event["EventDate"][6..15], "%s").to_s + " End: " + Date.strptime(event["EventEndDate"][6..15], "%s").to_s %></p>
+			<li id='ltag'>
+				<button id='ebtag' onclick='sendEvent(<%= event.to_json %>)'>
+					<% sDate = Date.strptime(event["EventDate"][6..15], "%s")%>
+					<% eDate = Date.strptime(event["EventEndDate"][6..15], "%s")%>
+					<p id='etag'><%= event["EventName"] %></p>
+					<p id='etag'><%= event["EventAddress"] + " " +event["EventCity"] + ", " + event["EventState"]%></p>
+					<p id='etag'><%= 	"Event Starts: " + sDate.strftime("%B %-d, %Y") %></p>
+					<p id='etag'><%= 	"Event Ends: " + eDate.strftime("%B %-d, %Y") %></p>
 				</button>
 			</li>
 		<% end %>
@@ -131,5 +134,5 @@
 	  <div id='calendar'></div>
   </div>
 </section>
-<footer>Cyclendar: A Mashup for Homework 2</footer>
+<footer>Cyclendar: A hub for your biking events</footer>
 

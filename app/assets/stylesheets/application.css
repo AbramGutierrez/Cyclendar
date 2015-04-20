@@ -26,6 +26,28 @@ header{
 	color: #f8f5f1;
 }
 
+ul#utag {
+	width: 90%;
+	margin: auto;
+}
+
+li#ltag {
+	list-style-type: none;
+}
+
+p#etag {
+	padding: 2px;
+	margin: 0px;
+}
+
+button#ebtag {	
+	padding: 5px;
+	width: 100%;
+	text-align: left;
+	border-radius: 25px;
+    border: 4px solid #000000;
+}
+
 h1{
 	width: 100%;
 	font-size: 2em;
@@ -53,7 +75,7 @@ footer{
 
 section#content {
     width: 90%;
-    height: 80%;
+    height: 90%;
     margin: auto;
 }
 
